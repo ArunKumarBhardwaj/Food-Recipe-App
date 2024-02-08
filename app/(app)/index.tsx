@@ -10,11 +10,12 @@ import Categories from "@/components/Categories";
 import Recipes from "@/components/Recipes";
 import { useEffect, useState } from "react";
 import { useGetRecipes } from "@/api/useGetRecipes";
+import Loader from "@/components/Loader";
 
 export default function HomeScreen() {
   const { data: categories } = useGetCategories();
-  const { data: recipes, isLoading } = useGetRecipes("Beef");
-  const [selectedCategory, setSelectedCategory] = useState<string>("");
+  const [selectedCategory, setSelectedCategory] = useState<any>();
+  const { data: recipes, status } = useGetRecipes(selectedCategory);
 
   useEffect(() => {
     setSelectedCategory(categories?.categories[0]?.strCategory);
@@ -72,16 +73,22 @@ export default function HomeScreen() {
 
         {/* {'Categories View'} */}
         <View>
-          <Categories
-            data={categories?.categories}
-            selectedCategory={selectedCategory}
-            setSelectedCategory={setSelectedCategory}
-          />
+          {categories?.categories?.length > 0 && (
+            <Categories
+              data={categories?.categories}
+              selectedCategory={selectedCategory}
+              setSelectedCategory={setSelectedCategory}
+            />
+          )}
         </View>
 
         {/* {'Recipes View'} */}
         <View>
-          {isLoading ? <Text>Loading</Text> : <Recipes data={recipes?.meals} />}
+          {status !== "success" ? (
+            <Loader />
+          ) : (
+            <Recipes data={recipes?.meals} />
+          )}
         </View>
       </ScrollView>
     </View>

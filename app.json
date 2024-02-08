@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "my-expo-app",
-    "slug": "my-expo-app",
+    "name": "Recipe",
+    "slug": "Recipe",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
@@ -22,7 +22,8 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.my_recipe"
     },
     "web": {
       "bundler": "metro",
@@ -40,7 +41,7 @@
         "origin": false
       },
       "eas": {
-        "projectId": "2baac6c8-9fb2-4ef9-8fc3-202a70b3385e"
+        "projectId": "203c5f06-2fb0-43d6-95dd-e058fd4464fa"
       }
     }
   }

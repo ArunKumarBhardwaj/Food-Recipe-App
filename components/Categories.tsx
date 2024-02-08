@@ -15,7 +15,7 @@ import Animated, { FadeInDown } from "react-native-reanimated";
 
 interface props {
   data: any;
-  selectedCategory: string;
+  selectedCategory: any;
   setSelectedCategory: (val: string) => void;
 }
 

@@ -28,6 +28,7 @@ const Recipes = ({ data }: props) => {
           .duration(600)
           .springify()
           .damping(12)}
+        style={{ paddingVertical: 10 }}
       >
         <Pressable
           style={{
@@ -35,7 +36,7 @@ const Recipes = ({ data }: props) => {
             paddingLeft: isEven ? 0 : 8,
             paddingRight: isEven ? 8 : 0,
           }}
-          className="flex justify-center mb-4 space-y-1"
+          className="justify-center mb-4 space-y-1"
         >
           <Image
             source={{ uri: item?.strMealThumb }}
@@ -61,7 +62,7 @@ const Recipes = ({ data }: props) => {
   };
 
   return (
-    <View className="mx-4 mb-4 pt-2 space-y-4">
+    <View className="mx-4 mb-4 pt-2">
       <Text
         style={{ fontSize: hp(3) }}
         className="font-semibold text-neutral-600"
