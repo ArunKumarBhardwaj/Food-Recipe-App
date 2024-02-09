@@ -32,7 +32,10 @@ const WelcomeScreen: React.FC<WelcomeScreenProps> = () => {
           ]}
         />
       </Animated.View>
-      <Animated.View style={{ position: "absolute", bottom: 50 }}>
+      <Animated.View
+        entering={FadeIn.duration(1000).easing(Easing.ease)}
+        style={{ position: "absolute", bottom: 50 }}
+      >
         <Text
           className="items-center text-center text-2xl text-white"
           style={{ fontFamily: "SpaceMono" }}

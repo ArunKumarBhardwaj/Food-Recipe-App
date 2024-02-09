@@ -15,5 +15,6 @@ export const useGetRecipes = (category: any) => {
     queryKey: [QUERY_KEY, category],
     queryFn: () => fetchRecipes(category),
     enabled: !!category,
+    staleTime: Infinity,
   });
 };

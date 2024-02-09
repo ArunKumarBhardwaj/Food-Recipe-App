@@ -14,5 +14,6 @@ export const useGetCategories = () => {
   return useQuery({
     queryKey: QUERY_KEY,
     queryFn: fetchCategories,
+    staleTime: Infinity,
   });
 };
