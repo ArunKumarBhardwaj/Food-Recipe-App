@@ -1,25 +1,25 @@
-import {
-  View,
-  Text,
-  ScrollView,
-  Image,
-  TouchableOpacity,
-  Pressable,
-} from "react-native";
+import { View, Text, ScrollView, Image, TouchableOpacity } from "react-native";
 import React from "react";
-import {
-  widthPercentageToDP as wp,
-  heightPercentageToDP as hp,
-} from "react-native-responsive-screen";
+import { heightPercentageToDP as hp } from "react-native-responsive-screen";
 import Animated, { FadeInDown } from "react-native-reanimated";
 
-interface props {
-  data: any;
-  selectedCategory: any;
+interface Category {
+  idCategory: string;
+  strCategory: string;
+  strCategoryThumb: string;
+}
+
+interface CategoriesProps {
+  data: Category[];
+  selectedCategory: string | undefined;
   setSelectedCategory: (val: string) => void;
 }
 
-const Categories = ({ data, selectedCategory, setSelectedCategory }: props) => {
+const Categories: React.FC<CategoriesProps> = ({
+  data,
+  selectedCategory,
+  setSelectedCategory,
+}) => {
   return (
     <Animated.View entering={FadeInDown.duration(500).springify()}>
       <ScrollView
@@ -32,7 +32,7 @@ const Categories = ({ data, selectedCategory, setSelectedCategory }: props) => {
         className="space-x-4"
         contentContainerStyle={{ paddingHorizontal: 15, paddingVertical: 14 }}
       >
-        {data?.map((item: any) => {
+        {data?.map((item: Category) => {
           let activeCat = item?.strCategory == selectedCategory;
           let activeBtn = activeCat ? "bg-amber-400" : "bg-black/10";
           return (

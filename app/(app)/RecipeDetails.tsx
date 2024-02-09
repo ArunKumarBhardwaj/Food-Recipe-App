@@ -7,9 +7,10 @@ import {
 } from "react-native-responsive-screen";
 import { useRecipeDetailsStore } from "@/store/store";
 
-const RecipeDetails = () => {
+interface RecipeDetailsProps {}
+
+const RecipeDetails: React.FC<RecipeDetailsProps> = () => {
   const items = useRecipeDetailsStore((state) => state.items);
-  console.log("Zustand Data---->", items);
 
   return (
     <ScrollView
@@ -19,10 +20,10 @@ const RecipeDetails = () => {
     >
       <StatusBar style="dark" />
       <View>
-        {/* <Image
-          source={{ uri: "" }}
+        <Image
+          source={{ uri: items?.strMealThumb }}
           style={{ width: wp(100), height: hp(50) }}
-        /> */}
+        />
       </View>
     </ScrollView>
   );

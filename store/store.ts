@@ -7,13 +7,13 @@ interface Item {
 }
 
 interface Store {
-  items: Item | {};
+  items: Item | undefined;
   storeDetails: (item: Item) => void;
   removeDetails: () => void;
 }
 
 export const useRecipeDetailsStore = create<Store>((set) => ({
-  items: {},
+  items: undefined,
   storeDetails: (item: Item) => set(() => ({ items: { ...item } })),
-  removeDetails: () => set({ items: {} }),
+  removeDetails: () => set({ items: undefined }),
 }));

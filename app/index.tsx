@@ -8,7 +8,9 @@ import {
 import Animated, { FadeIn, Easing } from "react-native-reanimated";
 import { router } from "expo-router";
 
-const WelcomeScreen = () => {
+interface WelcomeScreenProps {}
+
+const WelcomeScreen: React.FC<WelcomeScreenProps> = () => {
   useEffect(() => {
     setTimeout(() => {
       router.replace("/(app)/");

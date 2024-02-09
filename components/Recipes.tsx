@@ -3,14 +3,22 @@ import React from "react";
 import { heightPercentageToDP as hp } from "react-native-responsive-screen";
 import Animated, { FadeInDown } from "react-native-reanimated";
 import MasonryList from "@react-native-seoul/masonry-list";
+
 import { router } from "expo-router";
 import { useRecipeDetailsStore } from "@/store/store";
 
-interface props {
-  data: any;
+interface RecipeItem {
+  idMeal: string;
+  strMeal: string;
+  strMealThumb: string;
 }
 
-const RecipeCard = ({ item, index }: any) => {
+interface RecipeCardProps {
+  item: RecipeItem;
+  index: number;
+}
+
+const RecipeCard: React.FC<RecipeCardProps> = ({ item, index }) => {
   const addItem = useRecipeDetailsStore((state) => state.storeDetails);
   let isEven = index % 2 == 0;
   return (
@@ -59,7 +67,11 @@ const RecipeCard = ({ item, index }: any) => {
   );
 };
 
-const Recipes = ({ data }: props) => {
+interface RecipesProps {
+  data: RecipeItem[];
+}
+
+const Recipes: React.FC<RecipesProps> = ({ data }) => {
   return (
     <View className="mx-4 mb-4 pt-2">
       <Text
@@ -74,7 +86,9 @@ const Recipes = ({ data }: props) => {
           keyExtractor={(item) => item.idMeal}
           numColumns={2}
           showsVerticalScrollIndicator={false}
-          renderItem={({ item, i }) => <RecipeCard item={item} index={i} />}
+          renderItem={({ item, i }: any) => (
+            <RecipeCard item={item} index={i} />
+          )}
         />
       </View>
     </View>

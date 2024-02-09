@@ -12,9 +12,13 @@ import { useEffect, useState } from "react";
 import { useGetRecipes } from "@/api/useGetRecipes";
 import Loader from "@/components/Loader";
 
-export default function HomeScreen() {
+interface HomeScreenProps {}
+
+export default function HomeScreen({}: HomeScreenProps) {
   const { data: categories } = useGetCategories();
-  const [selectedCategory, setSelectedCategory] = useState<any>();
+  const [selectedCategory, setSelectedCategory] = useState<
+    string | undefined
+  >();
   const { data: recipes, status } = useGetRecipes(selectedCategory);
 
   useEffect(() => {
