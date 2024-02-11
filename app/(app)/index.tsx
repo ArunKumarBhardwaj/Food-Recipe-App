@@ -22,7 +22,7 @@ export default function HomeScreen({}: HomeScreenProps) {
   const { data: recipes, status } = useGetRecipes(selectedCategory);
 
   useEffect(() => {
-    setSelectedCategory(categories?.categories[0]?.strCategory);
+    setSelectedCategory(() => categories?.categories[0]?.strCategory);
   }, [categories]);
 
   return (

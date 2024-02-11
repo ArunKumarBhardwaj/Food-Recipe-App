@@ -1,9 +1,9 @@
 import { useQuery } from "@tanstack/react-query";
-import axios from "axios";
+import axios, { AxiosResponse } from "axios";
 
 const QUERY_KEY = ["categories"];
 
-const fetchCategories = async () => {
+const fetchCategories = async (): Promise<AxiosResponse> => {
   const { data } = await axios.get(
     "https://themealdb.com/api/json/v1/1/categories.php"
   );
