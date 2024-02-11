@@ -42,7 +42,7 @@ const RecipeCard: React.FC<RecipeCardProps> = ({ item, index }) => {
         }}
       >
         <Animated.Image
-          sharedTransitionTag={item?.idMeal}
+          sharedTransitionTag={`recipe${item?.idMeal}`}
           source={{ uri: item?.strMealThumb }}
           style={{
             width: "100%",
