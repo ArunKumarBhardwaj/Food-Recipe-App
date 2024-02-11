@@ -38,10 +38,7 @@ const RecipeCard: React.FC<RecipeCardProps> = ({ item, index }) => {
         className="justify-center mb-4 space-y-1"
         onPress={() => {
           addItem(item);
-          router.push({
-            pathname: "/(app)/RecipeDetails",
-            params: { ...item },
-          });
+          router.push("/(app)/RecipeDetails");
         }}
       >
         <Animated.Image
