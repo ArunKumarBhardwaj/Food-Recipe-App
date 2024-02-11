@@ -6,11 +6,12 @@ import {
   heightPercentageToDP as hp,
 } from "react-native-responsive-screen";
 import { useRecipeDetailsStore } from "@/store/store";
+import Animated from "react-native-reanimated";
 
 interface RecipeDetailsProps {}
 
 const RecipeDetails: React.FC<RecipeDetailsProps> = () => {
-  const items = useRecipeDetailsStore((state) => state.items);
+  const item = useRecipeDetailsStore((state) => state.items);
 
   return (
     <ScrollView
@@ -20,8 +21,9 @@ const RecipeDetails: React.FC<RecipeDetailsProps> = () => {
     >
       <StatusBar style="dark" />
       <View>
-        <Image
-          source={{ uri: items?.strMealThumb }}
+        <Animated.Image
+          sharedTransitionTag={item?.idMeal}
+          source={{ uri: item?.strMealThumb }}
           style={{ width: wp(100), height: hp(50) }}
         />
       </View>

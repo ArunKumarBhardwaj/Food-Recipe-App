@@ -44,7 +44,8 @@ const RecipeCard: React.FC<RecipeCardProps> = ({ item, index }) => {
           });
         }}
       >
-        <Image
+        <Animated.Image
+          sharedTransitionTag={item?.idMeal}
           source={{ uri: item?.strMealThumb }}
           style={{
             width: "100%",
