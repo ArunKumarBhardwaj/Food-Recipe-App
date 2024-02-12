@@ -57,7 +57,11 @@ To run the Food Recipe App locally, follow these steps:
 
 
 ## ScreenShots
-![Screenshot_20240212_140133](https://github.com/ArunKumarBhardwaj/Food-Recipe-App/assets/71225976/22a0ebd1-b803-4e5a-9466-e1d235cdc9aa |width="200" height="400")
-![Screenshot_20240212_140138](https://github.com/ArunKumarBhardwaj/Food-Recipe-App/assets/71225976/d4583863-1503-47e2-a903-832229183147 |width="200" height="400")
+<img src="https://github.com/ArunKumarBhardwaj/Food-Recipe-App/assets/71225976/22a0ebd1-b803-4e5a-9466-e1d235cdc9aa" width="300" height="620">
+
+
+<img src="https://github.com/ArunKumarBhardwaj/Food-Recipe-App/assets/71225976/d4583863-1503-47e2-a903-832229183147" width="300" height="620">
+
+
 
 
