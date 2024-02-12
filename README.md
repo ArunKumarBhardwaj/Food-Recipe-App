@@ -34,7 +34,6 @@ The Food Recipe App is built using the following technologies:
 
 - **React Native Reanimated** Used for animations.
 
-- **(Any other specific libraries or tools used in the project)**
 
 ## Installation
 
