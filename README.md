@@ -28,9 +28,13 @@ The Food Recipe App is built using the following technologies:
 
 - **Expo:** A framework and set of tools for building React Native applications.
 
-- **Zustand:** A state management library for managing the application's state.
+- **React Query:** A state management library for managing the application's state.
 
-- **Meal DB API** Used for fetching meals.
+- **Native Wind:** NativeWind uses Tailwind CSS as scripting language to create a universal style system for React Native.
+
+- **Zustand:** React Query is a powerful tool for managing server state in your React applications.
+
+- **Meal DB API** An open, crowd-sourced database of Recipes from around the world.
 
 - **React Native Reanimated** Used for animations.
 
@@ -40,6 +44,20 @@ The Food Recipe App is built using the following technologies:
 To run the Food Recipe App locally, follow these steps:
 
 1. Clone the repository:
-
-   ```bash
    git clone https://github.com/ArunKumarBhardwaj/Food-Recipe-App.git
+
+2.Navigate to the project directory:
+   cd Food-Recipe-App
+
+3.Install dependencies:
+   yarn install
+
+4.Run Prroject
+   yarn android/ios
+
+
+## ScreenShots
+![Screenshot_20240212_140133](https://github.com/ArunKumarBhardwaj/Food-Recipe-App/assets/71225976/22a0ebd1-b803-4e5a-9466-e1d235cdc9aa)
+![Screenshot_20240212_140138](https://github.com/ArunKumarBhardwaj/Food-Recipe-App/assets/71225976/d4583863-1503-47e2-a903-832229183147)
+
+
