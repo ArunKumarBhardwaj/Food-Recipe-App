@@ -8,9 +8,6 @@ This repository contains the source code for a Food Recipe App, a mobile applica
 - [Features](#features)
 - [Technologies Used](#technologies-used)
 - [Installation](#installation)
-- [Usage](#usage)
-- [Contributing](#contributing)
-- [License](#license)
 
 ## Description
 
