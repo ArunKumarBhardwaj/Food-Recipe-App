@@ -52,7 +52,7 @@ To run the Food Recipe App locally, follow these steps:
 3.Install dependencies:
    yarn install
 
-4.Run Prroject
+4.Run Project:
    yarn android/ios
 
 
