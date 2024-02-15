@@ -23,16 +23,12 @@ interface RecipeDetailsProps {}
 
 const RecipeDetails: React.FC<RecipeDetailsProps> = () => {
   const item = useRecipeDetailsStore((state) => state.items);
-  const [isFavourite, setIsFavourite] = useState(false);
-  const {
-    data: recipeDetail,
-    isLoading,
-    status,
-  } = useGetRecipeDeatils(item?.idMeal);
+  const [isFavourite, setIsFavourite] = useState<boolean>(false);
+  const { data: recipeDetail, status } = useGetRecipeDeatils(item?.idMeal);
 
-  const ingredientIndex = (meal: any) => {
+  const ingredientIndex = (meal: any): number[] => {
     if (!meal) return [];
-    let index = [];
+    let index: number[] = [];
     for (let i = 0; i <= 20; i++) {
       if (meal["strIngredient" + i]) {
         index.push(i);
@@ -41,9 +37,9 @@ const RecipeDetails: React.FC<RecipeDetailsProps> = () => {
     return index;
   };
 
-  const getVideoId = (id: any) => {
+  const getVideoId = (id: any): any => {
     const regex = /[?&]v=([^&]+)/;
-    const match = id.match(regex);
+    const match = id?.match(regex);
     if (match && match[1]) {
       return match[1];
     }
@@ -262,10 +258,7 @@ const RecipeDetails: React.FC<RecipeDetailsProps> = () => {
 
           {/* {'Instructions'} */}
           <Animated.View
-            entering={FadeInDown.delay(300)
-              .duration(700)
-              .springify()
-              .damping(12)}
+            entering={FadeInDown.duration(700).springify().damping(12)}
             className="space-y-4"
           >
             <Text
@@ -281,10 +274,7 @@ const RecipeDetails: React.FC<RecipeDetailsProps> = () => {
 
           {/* {'Youtube Video'} */}
           <Animated.View
-            entering={FadeInDown.delay(300)
-              .duration(700)
-              .springify()
-              .damping(12)}
+            entering={FadeInDown.duration(700).springify().damping(12)}
           >
             {recipeDetail?.meals[0]?.strYoutube && (
               <View className="space-y-4">
