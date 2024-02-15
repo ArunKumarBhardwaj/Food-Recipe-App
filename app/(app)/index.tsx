@@ -11,6 +11,7 @@ import Recipes from "@/components/Recipes";
 import { useEffect, useState } from "react";
 import { useGetRecipes } from "@/api/useGetRecipes";
 import Loader from "@/components/Loader";
+import { useGetSearchedMeal } from "@/api/useGetSearchedMeal";
 
 interface HomeScreenProps {}
 
@@ -19,7 +20,11 @@ export default function HomeScreen({}: HomeScreenProps) {
   const [selectedCategory, setSelectedCategory] = useState<
     string | undefined
   >();
-  const { data: recipes, status } = useGetRecipes(selectedCategory);
+  const [searchText, setSearchText] = useState<string>("");
+  const { data: recipes, status: recipeStatus } =
+    useGetRecipes(selectedCategory);
+  const { data: searchedMeal, status: searchedStatus } =
+    useGetSearchedMeal(searchText);
 
   useEffect(() => {
     setSelectedCategory(() => categories?.categories[0]?.strCategory);
@@ -28,7 +33,11 @@ export default function HomeScreen({}: HomeScreenProps) {
   return (
     <View className="flex-1 bg-white">
       <StatusBar style="dark" />
-      <ScrollView showsVerticalScrollIndicator={false} className="pt-5">
+      <ScrollView
+        showsVerticalScrollIndicator={false}
+        keyboardShouldPersistTaps="handled"
+        className="pt-5"
+      >
         {/* {'Header View'} */}
         <View className="flex-row items-center justify-between mx-4 mb-2">
           <Image
@@ -65,6 +74,8 @@ export default function HomeScreen({}: HomeScreenProps) {
         {/* {'Greetings View'} */}
         <View className="mx-4 items-center rounded-full flex-row bg-black/5 p-[6px] flex-row justify-bewteen">
           <TextInput
+            value={searchText}
+            onChangeText={(text: string) => setSearchText(text)}
             placeholder="Search any recipe"
             placeholderTextColor={"gray"}
             style={{ fontSize: hp(1.7) }}
@@ -76,24 +87,36 @@ export default function HomeScreen({}: HomeScreenProps) {
         </View>
 
         {/* {'Categories View'} */}
-        <View>
-          {categories?.categories?.length > 0 && (
-            <Categories
-              data={categories?.categories}
-              selectedCategory={selectedCategory}
-              setSelectedCategory={setSelectedCategory}
-            />
-          )}
-        </View>
+        {!searchText ? (
+          <View>
+            {categories?.categories?.length > 0 && (
+              <Categories
+                data={categories?.categories}
+                selectedCategory={selectedCategory}
+                setSelectedCategory={setSelectedCategory}
+              />
+            )}
+          </View>
+        ) : null}
 
         {/* {'Recipes View'} */}
-        <View>
-          {status !== "success" ? (
-            <Loader />
-          ) : (
-            <Recipes data={recipes?.meals} />
-          )}
-        </View>
+        {searchText?.length && searchedMeal?.meals?.length ? (
+          <View>
+            {searchedStatus !== "success" ? (
+              <Loader />
+            ) : (
+              <Recipes data={searchedMeal?.meals} />
+            )}
+          </View>
+        ) : (
+          <View>
+            {recipeStatus !== "success" ? (
+              <Loader />
+            ) : (
+              <Recipes data={recipes?.meals} />
+            )}
+          </View>
+        )}
       </ScrollView>
     </View>
   );
