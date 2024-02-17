@@ -65,7 +65,7 @@ const RecipeDetails: React.FC<RecipeDetailsProps> = () => {
         />
       </View>
       <Animated.View
-        entering={FadeIn.delay(200).duration(1000)}
+        entering={FadeIn.delay(200).duration(300)}
         className="w-full absolute flex-row justify-between items-center pt-12"
       >
         <TouchableOpacity

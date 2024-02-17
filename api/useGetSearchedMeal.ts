@@ -11,7 +11,6 @@ const fetchSearchedMeal = async (meal: any) => {
 };
 
 export const useGetSearchedMeal = (meal: any) => {
-  console.log("-->llength", meal?.length);
   return useQuery({
     queryKey: [QUERY_KEY, meal],
     queryFn: () => fetchSearchedMeal(meal),
