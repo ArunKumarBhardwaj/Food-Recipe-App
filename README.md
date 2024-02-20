@@ -34,7 +34,7 @@ The Food Recipe App is built using the following technologies:
 
 - **Zustand:** React Query is a powerful tool for managing server state in your React applications.
 
-- **Meal DB API** An open, crowd-sourced database of Recipes from around the world.
+- **Meal DB API:** An open, crowd-sourced database of Recipes from around the world.
 
 - **React Native Reanimated** Used for animations.
 
