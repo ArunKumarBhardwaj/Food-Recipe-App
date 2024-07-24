@@ -6,6 +6,7 @@ import MasonryList from "@react-native-seoul/masonry-list";
 
 import { router } from "expo-router";
 import { useRecipeDetailsStore } from "@/store/store";
+import { sharedElementTransition } from "@/constants/sharedElementTransition";
 
 interface RecipeItem {
   idMeal: string;
@@ -43,6 +44,7 @@ const RecipeCard: React.FC<RecipeCardProps> = ({ item, index }) => {
       >
         <Animated.Image
           sharedTransitionTag={`recipe${item?.idMeal}`}
+          sharedTransitionStyle={sharedElementTransition}
           source={{ uri: item?.strMealThumb }}
           style={{
             width: "100%",

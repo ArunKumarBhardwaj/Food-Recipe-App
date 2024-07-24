@@ -18,6 +18,7 @@ import { router } from "expo-router";
 import { useGetRecipeDeatils } from "@/api/useGetRecipeDetails";
 import Loader from "@/components/Loader";
 import YoutubeIframe from "react-native-youtube-iframe";
+import { sharedElementTransition } from "@/constants/sharedElementTransition";
 
 interface RecipeDetailsProps {}
 
@@ -61,6 +62,7 @@ const RecipeDetails: React.FC<RecipeDetailsProps> = () => {
         <Animated.Image
           sharedTransitionTag={`recipe${item?.idMeal}`}
           source={{ uri: item?.strMealThumb }}
+          sharedTransitionStyle={sharedElementTransition}
           style={{ width: wp(100), height: hp(50) }}
         />
       </View>
